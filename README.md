@@ -4,12 +4,12 @@ A repo containing introductory material for learning scala.
 ## Topics Covered
 
 * **Scala Basics**
-    * values and variable types
-    * string operations
-    * expressions
-    * default arguements
-    * functions
-    * recursion
+    * Values and variable types
+    * String operations
+    * Expressions
+    * Default arguments
+    * Functions
+    * Recursion
     
 * **Object Orientated Pogramming (OOP)**
     * OOP Basics
@@ -20,5 +20,8 @@ A repo containing introductory material for learning scala.
     * Generics
     
 * **Functional Programming (FP)**
-    * functions as objects
-    * objects as functions
+    * Functions as objects
+    * Objects as functions
+    * Function types
+    * Curried functions
+    * Anonymous functions (lambdas)
