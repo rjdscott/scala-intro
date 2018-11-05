@@ -1,4 +1,4 @@
-name := "scala-for-beginners"
+name := "scala-intro"
 
 version := "0.1"
 
