@@ -49,6 +49,7 @@ case object Empty5 extends MyList5[Nothing] {
         if (!list.isEmpty) throw new RuntimeException("List does not have same length")
         else Empty5
     }
+    def fold[B](start: B)(operator: (B, Nothing) => B): B = start
 }
 
 case class Cons5[+A](h: A, t: MyList5[A]) extends MyList5[A] {
@@ -128,6 +129,17 @@ case class Cons5[+A](h: A, t: MyList5[A]) extends MyList5[A] {
         if (list.isEmpty) throw new RuntimeException("Lists do not have same length")
         else new Cons5(zip(h, list.head), t.zipWith(list.tail, zip))
     }
+
+    /*  Lets take a look at how the fold function works
+        [1,2,3].fold(0)(+)
+        = [2,3].fold(1)(+)
+        =   [3].fold(3)(+)
+        =   [1].fold(6)(+)
+        =    6
+     */
+    def fold[B](start: B)(operator: (B, A) => B): B = {
+        t.fold(operator(start, h))(operator)
+    }
 }
 
 object ListTest5 extends App {
@@ -153,4 +165,5 @@ object ListTest5 extends App {
     listOfInts.foreach(println)
     println(listOfInts.sort((x, y) => y - x))
     println(listOfInts.zipWith[String, String](listOfStr, _ + "-" + _))
+    println(listOfInts.fold(0)(_ + _))
 }
