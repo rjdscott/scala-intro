@@ -2,14 +2,14 @@ package lectures.part3fp
 
 object AnonymousFunctions extends App {
 
-    // OOP way of instanciating a function
+    // OOP way of instantiating a function
     val doubler = new Function1[Int, Int] {
         override def apply(v1: Int): Int = v1 * 2
     }
 
     // FP way of doing the same thing is be done as follows - Anonymous function or lambda
     // this is a lambda
-    // systatic sugar - is a value of function1
+    // syntactic sugar - is a value of function1
     val doubler2 = (x: Int) => x * 2
 
     // shorter hand
@@ -42,5 +42,10 @@ object AnonymousFunctions extends App {
     // is same as
     val niceIncrementer2: Int => Int = _ + 1
     val niceAdder2: (Int, Int) => Int = _ + _
+
+    // more elegant way of doing the adder function
+    val superAdd = (x: Int) => (y: Int) => x + y
+
+    // lets fix up the println's on the myList4 page.
 
 }
