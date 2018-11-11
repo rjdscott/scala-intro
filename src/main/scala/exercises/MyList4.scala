@@ -104,17 +104,13 @@ object ListTest4 extends App {
     println(listOfInts.toString) // prints: [1 2 3]
     println(listOfStr.toString) // prints: [List of Scala]
 
-    println(listOfInts.map(new Function1[Int, Int] {
-        override def apply(elem: Int): Int = elem * 2
-    }).toString) // prints: [2 4 6]
+    println(listOfInts.map(elem => elem * 2).toString) // prints: [2 4 6]
+    println(listOfInts.map(_ * 2).toString)
 
-    println(listOfInts.filter(new Function1[Int, Boolean] {
-        override def apply(elem: Int): Boolean = elem % 2 == 0
-    }).toString) // prints: [2]
+    println(listOfInts.filter(elem => elem % 2 == 0).toString) // prints: [2]
+    println(listOfInts.filter(_ % 2 == 0).toString) // prints: [2]
 
     println((listOfInts ++ anotherListOfInts).toString) // prints: [1 2 3 4 5]
 
-    println(listOfInts.flatMap(new Function1[Int, MyList4[Int]] {
-        override def apply(elem: Int): MyList4[Int] = new Cons4(elem, new Cons4(elem + 1, Empty4))
-    }).toString) // prints: [1 2 2 3 3 4]
+    println(listOfInts.flatMap(elem => new Cons4(elem, new Cons4(elem + 1, Empty4))).toString) // prints: [1 2 2 3 3 4]
 }
