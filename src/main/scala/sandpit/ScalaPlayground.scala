@@ -1,4 +1,4 @@
-package Playground
+package sandpit
 
 object ScalaPlayground {
     def main(args: Array[String]): Unit = {
